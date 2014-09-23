@@ -253,8 +253,7 @@ typedef NS_ENUM(NSInteger, JLAuthorizationTags) {
 #pragma mark - Locations
 
 - (BOOL)locationsAuthorized {
-    return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) ||
-    ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) ||
+    return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) ||
     ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
 }
 
@@ -278,7 +277,6 @@ typedef NS_ENUM(NSInteger, JLAuthorizationTags) {
     CLAuthorizationStatus authorizationStatus =
     [CLLocationManager authorizationStatus];
     switch (authorizationStatus) {
-        case kCLAuthorizationStatusAuthorized:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
         case kCLAuthorizationStatusAuthorizedAlways: {
             completionHandler(true, nil);
@@ -787,7 +785,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     switch (status) {
         case kCLAuthorizationStatusNotDetermined:
             break;
-        case kCLAuthorizationStatusAuthorized:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
         case kCLAuthorizationStatusAuthorizedAlways: {
             [self.locationManager stopUpdatingLocation];
