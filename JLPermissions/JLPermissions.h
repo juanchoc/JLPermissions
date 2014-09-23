@@ -14,6 +14,13 @@ typedef void (^NotificationAuthorizationBlock)(NSString *deviceID,
 
 @interface JLPermissions : NSObject
 
+/**
+ *  If true, when location authorization is requested it will call the
+ *  requestAlwaysAuthorization method instead of the requestWhenInUseAuthorization
+ *  method of the location manager
+ */
+@property (assign, nonatomic) BOOL shouldRequestAlwaysAuthorization;
+
 + (instancetype)sharedInstance;
 
 /**
